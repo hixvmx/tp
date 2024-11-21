@@ -24,6 +24,37 @@ class ProductController extends Controller
 
         return view('products', compact('products'));
     }
+    
+    // view 'product/add' page
+    public function viewProductAddPage()
+    {
+        return view('add_new_product');
+    }
+    
+
+    // save new product
+    public function saveNewProduct(Request $request)
+    {
+        // Validate incoming data
+        $validated = $request->validate([
+            'product_name' => 'required|string|max:255',
+            'product_quantity' => 'required|integer|min:1',
+            'product_price' => 'required|integer|min:1',
+        ]);
+
+        // Save the product to the database
+        Product::create([
+            'name' => $validated['product_name'],
+            'price' => '$'.$validated['product_price'],
+            'total_quantity' => $validated['product_quantity'],
+            'sold_quantity' => 0,
+            'available_quantity' => 0,
+            'created_by' => 1,
+        ]);
+
+        // Redirect back with a success message
+        return redirect('/');
+    }
 
 
     // export products as PDF

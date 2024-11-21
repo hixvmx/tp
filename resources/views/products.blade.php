@@ -30,9 +30,11 @@
                         </div>
                     </div>
                 </button>
-                <button class="bg-[#2d54de] text-white rounded-md py-2 lg:px-4 px-2 flex items-center gap-2">
-                    Add new
-                </button>
+                <a href="/products/add">
+                    <button class="bg-[#2d54de] text-white rounded-md py-2 lg:px-4 px-2 flex items-center gap-2">
+                        Add new
+                    </button>
+                </a>
             </div>
         </div>
 
