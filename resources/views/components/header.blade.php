@@ -11,12 +11,8 @@ $authUser = Auth::user();
         </a>
 
         <div class="flex items-center gap-4">
-            <button class="hover:underline">
-                Notifications (0)
-            </button>
-
             <div class="relative group">
-                <div class="flex items-center gap-1 cursor-pointer">
+                <div class="flex items-center gap-2 cursor-pointer">
                     <div class="w-8 h-8 rounded-full bg-[#e1e5e9]"></div>
                     <div class="flex flex-col">
                         <span class="text-xs">{{ $authUser->name }}</span>

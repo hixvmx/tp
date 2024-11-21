@@ -102,6 +102,9 @@ class ProductController extends Controller
             'created_by' => 1,
         ]);
 
+        // send notification to other admins
+        $this->newNotification('added a new product with ID:'.$id.'.');
+
         // Redirect back with a success message
         return redirect('/');
     }
@@ -112,6 +115,9 @@ class ProductController extends Controller
     {
         if (!empty($id)) {
             Product::where('id', $id)->delete();
+
+            // send notification to other admins
+            $this->newNotification('has removed the product with ID:'.$id.'.');
         }
 
         return redirect('/');
@@ -167,6 +173,10 @@ class ProductController extends Controller
 
 
         if ($exist) {
+
+            // send notification to other admins
+            $this->newNotification('exported the products list as a pdf.');
+
             // Download file
             return response()->download(storage_path("app/public/$filePath"), $fileName, [
                 'Cache-Control' => 'no-cache, no-store, must-revalidate',
@@ -222,6 +232,10 @@ class ProductController extends Controller
         fclose($csvFile);
 
 
+        // send notification to other admins
+        $this->newNotification('exported the products list as a csv.');
+
+
         // Download file and remove it after download
         return response()->download(storage_path("app/public/$filePath"), $fileName, [
             'Cache-Control' => 'no-cache, no-store, must-revalidate',
@@ -267,6 +281,10 @@ class ProductController extends Controller
 
         // Storage::disk('public')->makeDirectory($directory);
         Storage::disk('public')->put($filePath, $xlsx);
+
+
+        // send notification to other admins
+        $this->newNotification('exported the products list as a excel.');
 
 
         // Download file and remove it after download
