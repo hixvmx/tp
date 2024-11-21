@@ -10,11 +10,18 @@ class Product extends Model
     protected $fillable = [
         'slug',
         'name',
+        'price',
         'total_quantity',
         'sold_quantity',
         'available_quantity',
         'created_by',
     ];
+
+
+    public function createdBy()
+    {
+        return $this->belongsTo('App\Models\User', 'created_by');
+    }
 
 
     /**

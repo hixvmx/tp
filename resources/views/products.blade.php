@@ -17,10 +17,10 @@
         </div>
 
         {{-- render products list --}}
-        @include('components.productsList')
+        @include('components.productsList', $products)
         
 
         {{-- render products pagination --}}
-        @include('components.pagination')
+        @include('components.pagination', $products)
     </section>
 @endsection
