@@ -31,6 +31,56 @@ class ProductController extends Controller
         return view('add_new_product');
     }
     
+    
+    // view 'product/add' page
+    public function viewEditProductPage(int $id)
+    {
+        $product = [];
+        if (!empty($id)) {
+            $product = Product::where('id', $id)->first();
+        }
+
+        if (!$product) {
+            return back();
+        }
+
+        return view('edit_product', compact('product'));
+    }
+
+    
+    // save changes
+    public function updateProductInfo(Request $request)
+    {
+        // Validate incoming data
+        $validated = $request->validate([
+            'id' => 'required|integer',
+            'name' => 'required|string|max:255',
+            'price' => 'required|integer|min:1',
+            'total_quantity' => 'required|integer|min:1',
+            'sold_quantity' => 'required|integer|min:1',
+            'available_quantity' => 'required|integer|min:1',
+        ]);
+
+        
+        $product = Product::where('id', $request->id)->first();
+        if (!$product) {
+            return back();
+        }
+
+        
+        // update
+        $product->name = $request->name;
+        $product->price = $request->price;
+        $product->total_quantity = $request->total_quantity;
+        $product->sold_quantity = $request->sold_quantity;
+        $product->available_quantity = $request->available_quantity;
+        $product->save();
+
+
+        // Redirect back with a success message
+        return redirect('/');
+    }
+    
 
     // save new product
     public function saveNewProduct(Request $request)
@@ -53,6 +103,17 @@ class ProductController extends Controller
         ]);
 
         // Redirect back with a success message
+        return redirect('/');
+    }
+    
+    
+    // delete product
+    public function deleteProductById(Request $request, int $id)
+    {
+        if (!empty($id)) {
+            Product::where('id', $id)->delete();
+        }
+
         return redirect('/');
     }
 

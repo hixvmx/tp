@@ -63,7 +63,10 @@
                         </div>
                     </td>
                     <td class="px-6 py-4 text-right">
-                        Action
+                        <div class="flex gap-2 justify-end">
+                            <a class="hover:underline hover:text-green-500" href="/products/edit/{{$product->id}}">Edit</a>
+                            <a class="hover:underline hover:text-red-500" href="/products/delete/{{$product->id}}">Delete</a>
+                        </div>
                     </td>
                 </tr>
             @endforeach

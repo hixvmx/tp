@@ -9,6 +9,9 @@ Route::controller(ProductController::class)->middleware('auth')->group(function(
     Route::get('/', 'viewProductsList');
     Route::get('/products/add', 'viewProductAddPage');
     Route::post('/products/add', 'saveNewProduct');
+    Route::get('/products/delete/{id}', 'deleteProductById');
+    Route::get('/products/edit/{id}', 'viewEditProductPage');
+    Route::post('/products/edit', 'updateProductInfo');
 
     // exporting routes
     Route::get('/export-products-as-pdf', 'exportProductsAsPdf');
