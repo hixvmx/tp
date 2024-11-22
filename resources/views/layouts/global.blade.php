@@ -19,8 +19,16 @@
     @vite('resources/js/app.js')
 
     <script type="module">
+        const notificationSound = new Audio('/notif.wav');
+
         Echo.channel('my-channel')
             .listen('NotifEvent', (e) => {
+                // play the notification sound first
+                notificationSound.play().catch(error => {
+                    console.error('Error playing sound:', error);
+                });
+
+                // set alert mess
                 alert(e.message);
             });
     </script>
