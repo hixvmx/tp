@@ -61,4 +61,10 @@ php artisan queue:work
 ```
 
 ### 3. Access the application
-Visit the application in your browser at https://localhost:8000.
+Visit the application in your browser at http://localhost:8000/.
+
+
+
+`Don't forget to open the project in different windows/browsers to test the real-time notifications.!`
+
+**By: www.hixvm.com**
