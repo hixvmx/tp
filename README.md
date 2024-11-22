@@ -65,6 +65,6 @@ Visit the application in your browser at http://localhost:8000/.
 
 
 
-`Don't forget to open the project in different windows/browsers to test the real-time notifications.!`
+`Don't forget to open the project in different windows/browsers with different accounts to test the real-time notifications.!`
 
 **By: www.hixvm.com**

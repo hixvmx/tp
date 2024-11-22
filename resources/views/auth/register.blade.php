@@ -23,7 +23,7 @@
                 </label>
 
                 <label class="flex flex-col gap-1">
-                    <label>Email: <span class="text-xs text-gray-400">A real email to receive notifications on.</span></label>
+                    <label>Email:</label>
                     <input type="email" name="email" class="border outline-none px-3 py-2" placeholder="ex@gmail.com" required>
                 </label>
 
