@@ -24,10 +24,10 @@ Run the following commands in your terminal:
 
 ```bash
 # Clone the repository
-git clone https://github.com/hixvmx/byteit.git
+git clone https://github.com/hixvmx/tp.git
 
 # Navigate into the project directory
-cd byteit
+cd tp
 
 # Install PHP dependencies
 composer install
