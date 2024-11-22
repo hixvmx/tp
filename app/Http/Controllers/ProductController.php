@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Storage;
 use Dompdf\Dompdf;
 use Dompdf\Options;
 use Shuchkin\SimpleXLSXGen;
+use Illuminate\Support\Facades\Auth;
 
 
 class ProductController extends Controller
@@ -93,17 +94,17 @@ class ProductController extends Controller
         ]);
 
         // Save the product to the database
-        Product::create([
+        $product = Product::create([
             'name' => $validated['product_name'],
             'price' => '$'.$validated['product_price'],
             'total_quantity' => $validated['product_quantity'],
             'sold_quantity' => 0,
             'available_quantity' => 0,
-            'created_by' => 1,
+            'created_by' => Auth::user()->id,
         ]);
 
         // send notification to other admins
-        $this->newNotification('added a new product with ID:'.$id.'.');
+        $this->newNotification('added a new product with ID:'.$product->id.'.');
 
         // Redirect back with a success message
         return redirect('/');

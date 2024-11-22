@@ -21,6 +21,8 @@ Route::controller(ProductController::class)->middleware('auth')->group(function(
 
 
 Route::controller(LoginController::class)->group(function() {
+    Route::get('/register', 'viewRegisterPage')->middleware('guest');
+    Route::post('/register', 'register')->middleware('guest');
     Route::get('/login', 'viewLoginPage')->middleware('guest');
     Route::post('/login', 'login')->name('login')->middleware('guest');
     Route::get('/logout', 'logout')->middleware('auth');

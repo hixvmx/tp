@@ -12,13 +12,18 @@
     <main class="min-h-dvh flex flex-col items-center justify-center">
         <section class="max-w-xl w-full p-4 rounded-md shadow bg-white">
             <div class="flex items-center justify-between">
-                <h1 class="mb-4 font-semibold text-xl">Login</h1>
-                <a href="/register" class="text-[#2d54de] hover:underline">Create account</a>
+                <h1 class="mb-4 font-semibold text-xl">Create account</h1>
+                <a href="/login" class="text-[#2d54de] hover:underline">Login</a>
             </div>
-            <form action="/login" method="POST" class="flex flex-col gap-4">
+            <form action="/register" method="POST" class="flex flex-col gap-4">
                 @csrf
                 <label class="flex flex-col gap-1">
-                    <label>Email:</label>
+                    <label>Name:</label>
+                    <input type="text" name="name" class="border outline-none px-3 py-2" placeholder="Joe" required>
+                </label>
+
+                <label class="flex flex-col gap-1">
+                    <label>Email: <span class="text-xs text-gray-400">A real email to receive notifications on.</span></label>
                     <input type="email" name="email" class="border outline-none px-3 py-2" placeholder="ex@gmail.com" required>
                 </label>
 
@@ -33,7 +38,7 @@
 
                 <button type="submit"
                     class="bg-[#2d54de] w-fit text-white rounded-md py-2 lg:px-6 md:px-4 px-2 flex items-center gap-2">
-                    Login
+                    Register
                 </button>
             </form>
         </section>
