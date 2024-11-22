@@ -62,13 +62,3 @@ php artisan queue:work
 
 ### 3. Access the application
 Visit the application in your browser at https://localhost:8000.
-
-
-
-# Users / Admins
-
-| ID | Email | Password |
-| ------ | ------ | ------ |
-| 1 | admin1@gmail.com | 123 |
-| 2 | admin2@gmail.com | 123 |
-| 3 | admin3@gmail.com | 123 |
