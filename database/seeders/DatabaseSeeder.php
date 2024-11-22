@@ -16,28 +16,28 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // // Users
-        // $users = [
-        //     [
-        //         'name' => "admin 1",
-        //         'email' => "admin1@gmail.com",
-        //         'password' => bcrypt(123),
-        //     ],
-        //     [
-        //         'name' => "admin 2",
-        //         'email' => "admin2@gmail.com",
-        //         'password' => bcrypt(123),
-        //     ],
-        //     [
-        //         'name' => "admin 3",
-        //         'email' => "admin3@gmail.com",
-        //         'password' => bcrypt(123),
-        //     ],
-        // ];
+        // Users
+        $users = [
+            [
+                'name' => "admin 1",
+                'email' => "admin1@gmail.com",
+                'password' => bcrypt(123),
+            ],
+            [
+                'name' => "admin 2",
+                'email' => "admin2@gmail.com",
+                'password' => bcrypt(123),
+            ],
+            [
+                'name' => "admin 3",
+                'email' => "admin3@gmail.com",
+                'password' => bcrypt(123),
+            ],
+        ];
 
-        // foreach ($users as $user) {
-        //     User::create($user);
-        // }
+        foreach ($users as $user) {
+            User::create($user);
+        }
 
 
         // Products
